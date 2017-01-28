@@ -1,4 +1,5 @@
-#include "pitches.h" // Permet d'utiliser les noms des notes (ex.: NOTE_A4) plutot que la fréquence
+#include "/usr/share/doc/arduino-core/examples/02.Digital/toneKeyboard/pitches.h" // Permet d'utiliser les noms des notes (ex.: NOTE_A4) plutot que la fréquence
+#include <NewTone.h>
 
 // Note d'une gamme
 int scaleNotes[] = {NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_A4, NOTE_B4, NOTE_C5}; // <<<
@@ -24,7 +25,7 @@ void loop()
   if (buttonIsPressed)
   {
     int noteIndex = numberOfButtonPresses % 8; // Modulo 8: on aura toujours un nombre compris entre [0, 7]
-    tone(buzzerPin, scaleNotes[noteIndex], 200); // Joue la note de la gamme pendant 200 ms
+    NewTone(buzzerPin, scaleNotes[noteIndex], 200); // Joue la note de la gamme pendant 200 ms
     numberOfButtonPresses++; // Incrémente le nombre d'événements de bouton
   }
   
